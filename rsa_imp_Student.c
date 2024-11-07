@@ -5,22 +5,44 @@
 // Function to calculate greatest common divisor (GCD) of two numbers
 unsigned long gcd(unsigned long a, unsigned long b) {
     
-   //Body of the function. This function should be implemented recursively
+  //Body of the function. This function should be implemented recursively
+  // Use Euclidean algorithm; repeat subtracting from larger of two favlues until end up with GCD
+  // GCD doesn't change when subtracting smaller value from larger value
+  if (a > b) {
+    return gcd(a - b, b);
+  }
+  else if (a < b) {
+    return gcd(a, b - a);
+  }
 
+  if (a == 0) {
+    return b;
+  }
+  else if (b == 0) {
+    return a;
+  }
+
+  if (a == b) {
+    return a;
+  }
+
+  return 0;
 }
 
 // Function to calculate modulo inverse using extended Euclidean algorithm
 unsigned long modInverse(unsigned long a, unsigned long m) {
     
   //Body of the function
-
+  
 }
 
 // Function to generate keys for RSA encryption
 void generateKeys(unsigned long p, unsigned long q, unsigned long *n, unsigned long *e, unsigned long *d) {
        
   //Body of the function
- 
+  *n = p*q;
+  //printf("\n%d\n", *n);
+
 }
 
 // Function to encrypt plaintext using RSA
